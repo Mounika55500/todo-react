@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "title": "shopping groceries",
+      "check": true,
+      "id": 1
+    },
+    {
+      "title": "book reading",
+      "check": false,
+      "id": 2
+    },
+    {
+      "title": "cleaning",
+      "check": false,
+      "id": 3
+    }
+  ]
+}

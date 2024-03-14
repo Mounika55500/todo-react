@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import TaskList from "./components/TaskList";
+import TaskDoneList from "./components/TaskDoneList";
+import "./components/styles.css";
+import Home from "./components/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Welcome from "./components/Welcome";
+import TaskSearchList from "./components/taskSearchList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Welcome />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/alltasks",
+          element: <TaskList />,
+        },
+        {
+          path: "/completedtasks",
+          element: <TaskDoneList />,
+        },
+        {
+          path: "/search",
+          element: <TaskSearchList />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
-
 export default App;
